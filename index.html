@@ -432,37 +432,47 @@
                     <div class="p-8 sm:p-10">
                         <h3 class="text-2xl font-bold text-dark mb-6">Join Our Cause</h3>
                         
-                        <!-- email sending form -->
-                        <form action="mailto:inamigosfoundation@gmail.com" method="post" enctype="text/plain" class="space-y-5">
+                        <!-- SECURE FORM FIX: Removed mailto: action, changed method to POST, added a standard form submission action URL -->
+                        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
                             
+                            <!-- 1. ADD YOUR ACCESS KEY HERE (Replaced with the key from your screenshot) -->
+                            <input type="hidden" name="access_key" value="e87c53c0-21b2-48b3-aa3e-42b43e68948f">
+                            
+                            <!-- 2. SPAM PROTECTION (Hidden from real users, catches bots) -->
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                            <!-- 3. OPTIONAL REDIRECT (Ye MPA banate waqt kaam aayega. Isko abhi comment rehne do) -->
+                            <!-- <input type="hidden" name="redirect" value="https://yourwebsite.com/thank-you.html"> -->
+
                             <!-- Name Field -->
                             <div>
                                 <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
-                                <input type="text" id="name" name="Name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Manish Modi">
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Manish Modi">
                             </div>
                             
                             <!-- Phone Number Field -->
                             <div>
                                 <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1">Phone Number</label>
-                                <input type="tel" id="phone" name="Phone Number" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="+91 XXXXX XXXXX">
+                                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="+91 XXXXX XXXXX">
                             </div>
                             
                             <!-- Email Field -->
                             <div>
                                 <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">Email Address</label>
-                                <input type="email" id="email" name="Email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="abhi@example.com">
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="abhi@example.com">
                             </div>
                             
                             <!-- Hidden Subject Field for the email -->
-                            <input type="hidden" name="Subject" value="New Volunteer/Intern Request from Website">
+                            <input type="hidden" name="subject" value="New Volunteer/Intern Request from Website">
                             
                             <!-- Submit Button -->
                             <button type="submit" class="w-full bg-dark hover:bg-gray-800 text-white font-bold py-3.5 px-8 rounded-lg shadow-md transition duration-300 flex items-center justify-center group mt-4">
                                 Send Details <i class="fas fa-paper-plane ml-2 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition"></i>
                             </button>
                         </form>
+                        <!-- Changed helper text to reflect secure submission -->
                         <p class="text-xs text-gray-500 mt-4 text-center">
-                            <i class="fas fa-info-circle mr-1"></i> Clicking 'Send' will open your default email app to complete the submission.
+                            <i class="fas fa-lock mr-1"></i> Your information is securely submitted to our team.
                         </p>
                     </div>
 
@@ -550,7 +560,7 @@
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 20) {
-                navbar.classList.add('shadow-lg', 'py-1');
+                navbar.classList .add('shadow-lg', 'py-1');
                 navbar.classList.remove('shadow-md');
             } else {
                 navbar.classList.add('shadow-md');
